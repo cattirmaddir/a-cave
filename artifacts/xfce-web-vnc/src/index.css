@@ -1,0 +1,164 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap');
+@import 'tailwindcss';
+@import 'tw-animate-css';
+
+@plugin "@tailwindcss/typography";
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+  --color-border: hsl(var(--border));
+  --color-input: hsl(var(--input));
+  --color-ring: hsl(var(--ring));
+  --color-card: hsl(var(--card));
+  --color-card-foreground: hsl(var(--card-foreground));
+  --color-card-border: hsl(var(--card-border));
+  --color-popover: hsl(var(--popover));
+  --color-popover-foreground: hsl(var(--popover-foreground));
+  --color-popover-border: hsl(var(--popover-border));
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+  --color-secondary: hsl(var(--secondary));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+  --color-accent: hsl(var(--accent));
+  --color-accent-foreground: hsl(var(--accent-foreground));
+  --color-destructive: hsl(var(--destructive));
+  --color-destructive-foreground: hsl(var(--destructive-foreground));
+  --color-chart-1: hsl(var(--chart-1));
+  --color-chart-2: hsl(var(--chart-2));
+  --color-chart-3: hsl(var(--chart-3));
+  --color-chart-4: hsl(var(--chart-4));
+  --color-chart-5: hsl(var(--chart-5));
+  --color-sidebar: hsl(var(--sidebar));
+  --color-sidebar-foreground: hsl(var(--sidebar-foreground));
+  --color-sidebar-border: hsl(var(--sidebar-border));
+  --color-sidebar-primary: hsl(var(--sidebar-primary));
+  --color-sidebar-primary-foreground: hsl(var(--sidebar-primary-foreground));
+  --color-sidebar-accent: hsl(var(--sidebar-accent));
+  --color-sidebar-accent-foreground: hsl(var(--sidebar-accent-foreground));
+  --color-sidebar-ring: hsl(var(--sidebar-ring));
+  --font-sans: var(--app-font-sans);
+  --font-mono: var(--app-font-mono);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+:root {
+  --background: 222 29% 9%;
+  --foreground: 39 35% 92%;
+  --border: 220 18% 21%;
+  --input: 220 18% 18%;
+  --ring: 40 96% 62%;
+  --card: 224 24% 12%;
+  --card-foreground: 39 35% 92%;
+  --card-border: 220 18% 21%;
+  --popover: 224 24% 13%;
+  --popover-foreground: 39 35% 92%;
+  --popover-border: 220 18% 21%;
+  --primary: 40 96% 62%;
+  --primary-foreground: 224 28% 10%;
+  --secondary: 220 18% 18%;
+  --secondary-foreground: 39 35% 92%;
+  --muted: 220 19% 15%;
+  --muted-foreground: 220 12% 60%;
+  --accent: 161 64% 48%;
+  --accent-foreground: 222 29% 9%;
+  --destructive: 4 76% 62%;
+  --destructive-foreground: 222 29% 9%;
+  --chart-1: 40 96% 62%;
+  --chart-2: 161 64% 48%;
+  --chart-3: 4 76% 62%;
+  --chart-4: 203 76% 62%;
+  --chart-5: 280 65% 70%;
+  --sidebar: 225 29% 8%;
+  --sidebar-foreground: 39 35% 92%;
+  --sidebar-border: 220 18% 17%;
+  --sidebar-primary: 40 96% 62%;
+  --sidebar-primary-foreground: 224 28% 10%;
+  --sidebar-accent: 220 18% 14%;
+  --sidebar-accent-foreground: 39 35% 92%;
+  --sidebar-ring: 40 96% 62%;
+  --app-font-sans: 'Manrope', sans-serif;
+  --app-font-mono: 'DM Mono', monospace;
+  --radius: 0.7rem;
+  --shadow-sm: 0 4px 16px rgba(0, 0, 0, 0.2);
+  --shadow-md: 0 16px 42px rgba(0, 0, 0, 0.26);
+  --tracking-normal: 0em;
+  --spacing: 0.25rem;
+  --elevate-1: rgba(255, 255, 255, 0.035);
+  --elevate-2: rgba(255, 255, 255, 0.065);
+}
+[data-accent='coral'] {
+  --primary: 10 78% 70%;
+  --primary-foreground: 224 28% 10%;
+  --ring: 10 78% 70%;
+  --sidebar-primary: 10 78% 70%;
+  --chart-1: 10 78% 70%;
+}
+[data-accent='mint'] {
+  --primary: 161 64% 48%;
+  --primary-foreground: 224 28% 10%;
+  --ring: 161 64% 48%;
+  --sidebar-primary: 161 64% 48%;
+  --chart-1: 161 64% 48%;
+}
+
+* { box-sizing: border-box; }
+html { min-width: 320px; background: hsl(var(--background)); }
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100dvh;
+  background: hsl(var(--background));
+  color: hsl(var(--foreground));
+  font-family: var(--app-font-sans);
+  font-feature-settings: 'ss01' 1, 'cv11' 1;
+}
+button, input { font: inherit; }
+button { cursor: pointer; }
+::selection { background: hsl(var(--primary) / 0.3); color: hsl(var(--foreground)); }
+
+.machine-shell {
+  background:
+    radial-gradient(circle at 88% -12%, hsl(var(--primary) / 0.095), transparent 29rem),
+    radial-gradient(circle at 18% 110%, hsl(var(--accent) / 0.06), transparent 24rem),
+    hsl(var(--background));
+}
+.machine-shell::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.14;
+  background-image: linear-gradient(hsl(var(--foreground) / 0.018) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--foreground) / 0.018) 1px, transparent 1px);
+  background-size: 32px 32px;
+  mask-image: linear-gradient(to bottom, black, transparent 82%);
+}
+.display-mono { font-family: var(--app-font-mono); }
+.glass-panel {
+  background: linear-gradient(140deg, hsl(var(--card) / 0.94), hsl(var(--card) / 0.78));
+  border: 1px solid hsl(var(--border) / 0.9);
+  box-shadow: var(--shadow-sm);
+}
+.fine-rule { border-color: hsl(var(--border) / 0.75); }
+.status-pulse { animation: status-pulse 2.2s ease-in-out infinite; }
+.boot-scan { animation: boot-scan 1.7s ease-in-out infinite; }
+.signal-bar { animation: signal-bars 1.4s ease-in-out infinite alternate; transform-origin: bottom; }
+.signal-bar:nth-child(2) { animation-delay: .18s; }
+.signal-bar:nth-child(3) { animation-delay: .35s; }
+.signal-bar:nth-child(4) { animation-delay: .5s; }
+.desktop-grid {
+  background-image: linear-gradient(hsl(var(--foreground) / 0.045) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--foreground) / 0.045) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+@keyframes status-pulse { 0%, 100% { opacity: .5; transform: scale(.86); } 50% { opacity: 1; transform: scale(1); } }
+@keyframes boot-scan { 0% { transform: translateX(-105%); } 100% { transform: translateX(340%); } }
+@keyframes signal-bars { from { transform: scaleY(.45); opacity: .5; } to { transform: scaleY(1); opacity: 1; } }
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
+}

@@ -1,0 +1,7 @@
+{
+  "name": "xfce-web-vnc-workspace",
+  "private": true,
+  "scripts": {
+    "dev": "PORT=${PORT:-23577} BASE_PATH=${BASE_PATH:-/} pnpm --dir artifacts/xfce-web-vnc dev"
+  }
+}
